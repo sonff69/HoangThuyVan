@@ -181,7 +181,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 20px 60px 20px;
+            padding: 140px 20px 60px 20px;
             position: relative;
         }
 
@@ -190,14 +190,17 @@
             margin-bottom: 30px;
         }
 
+        /* Avatar resized to double the original size */
         .hero-avatar {
-            width: 180px;
-            height: 180px;
+            width: 360px;
+            height: 360px;
+            max-width: 90vw;
+            max-height: 90vw;
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            border: 6px solid white;
-            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+            border: 8px solid white;
+            box-shadow: 0 12px 35px rgba(255, 182, 193, 0.5);
             object-fit: cover;
-            animation: waveMorph 8s ease-in-out infinite alternate, spinSlow 20s linear infinite;
+            animation: waveMorph 8s ease-in-out infinite alternate;
         }
 
         @keyframes waveMorph {
@@ -207,13 +210,13 @@
 
         .avatar-sticker {
             position: absolute;
-            bottom: -5px;
-            right: -5px;
+            bottom: 10px;
+            right: 15px;
             background: white;
-            padding: 8px;
+            padding: 10px;
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            font-size: 1.8rem;
             animation: bounce 2s infinite;
         }
 
@@ -311,7 +314,13 @@
             font-size: 1.5rem;
         }
 
-        /* About Section Card */
+        /* Enhanced About Section */
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
         .about-card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.6);
@@ -319,19 +328,19 @@
             padding: 40px;
             box-shadow: 0 15px 35px rgba(255, 182, 193, 0.15);
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .about-card {
                 grid-template-columns: 1fr;
             }
         }
 
         .about-left h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--dark-pink);
             margin-bottom: 15px;
         }
@@ -395,6 +404,84 @@
         .stat-box p {
             font-size: 0.85rem;
             color: #8c7a8b;
+        }
+
+        /* Hobbies, Goals & Future Plans Grid */
+        .personal-deepdive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .personal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .personal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 133, 161, 0.15);
+            border-color: var(--primary-pink);
+        }
+
+        .personal-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .personal-card-header .icon-wrapper {
+            background-color: #fff0f3;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--dark-pink);
+        }
+
+        .personal-card-header h4 {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 1.15rem;
+            color: #4a3e49;
+        }
+
+        .personal-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #6e5e6d;
+            text-align: justify;
+        }
+
+        .personal-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .personal-card ul li {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #5c4e5b;
+            font-weight: 500;
+        }
+
+        .personal-card ul li i {
+            color: var(--dark-pink);
+            font-size: 0.8rem;
         }
 
         /* Portfolio Cards Grid */
@@ -789,38 +876,83 @@
     <!-- About Section -->
     <section id="about" class="fade-in">
         <h2 class="section-title">Về Bản Thân Tớ</h2>
-        <div class="about-card">
-            <div class="about-left">
-                <h3>Xin chào, tớ là Vân! 🌸</h3>
-                <p>
-                    Là một sinh viên thuộc Khoa Ngôn ngữ & Văn hoá Hàn Quốc, tớ luôn tin rằng sự kết hợp giữa ngôn ngữ và công nghệ sẽ mở ra những cánh cửa cơ hội không giới hạn. Học phần "Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo" chính là bước ngoặt giúp tớ rũ bỏ định kiến "dân ngôn ngữ mù mờ công nghệ" để tự tin biến AI thành người bạn đồng hành tăng hiệu suất học tập tối đa.
-                </p>
-                <ul class="info-list">
-                    <li><i class="fa-solid fa-envelope"></i> 25042632@vnu.edu.vn</li>
-                    <li><i class="fa-solid fa-location-dot"></i> ULIS - ĐHQGHN, Hà Nội</li>
-                    <li><i class="fa-solid fa-sparkles"></i> Slogan: "Walk on the flower path with AI."</li>
-                </ul>
+        <div class="about-container">
+            <!-- Main Info Card -->
+            <div class="about-card">
+                <div class="about-left">
+                    <h3>Xin chào, tớ là Vân! 🌸</h3>
+                    <p>
+                        Là một sinh viên thuộc Khoa Ngôn ngữ & Văn hoá Hàn Quốc, tớ luôn tin rằng sự kết hợp giữa ngôn ngữ và công nghệ sẽ mở ra những cánh cửa cơ hội không giới hạn. Học phần "Nhập môn công nghệ số và ứng dụng trí tuệ nhân tạo" chính là bước ngoặt giúp tớ rũ bỏ định kiến "dân ngôn ngữ mù mờ công nghệ" để tự tin biến AI thành người bạn đồng hành tăng hiệu suất học tập tối đa.
+                    </p>
+                    <ul class="info-list">
+                        <li><i class="fa-solid fa-envelope"></i> 25042632@vnu.edu.vn</li>
+                        <li><i class="fa-solid fa-location-dot"></i> ULIS - ĐHQGHN, Hà Nội</li>
+                        <li><i class="fa-solid fa-sparkles"></i> Slogan: "Walk on the flower path with AI."</li>
+                    </ul>
+                </div>
+                <div class="about-right">
+                    <div class="stat-box">
+                        <i class="fa-solid fa-code"></i>
+                        <h4>6+</h4>
+                        <p>Dự án cá nhân hoàn thiện</p>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fa-solid fa-bolt"></i>
+                        <h4>3+</h4>
+                        <p>Công cụ AI thành thạo</p>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fa-solid fa-users"></i>
+                        <h4>100%</h4>
+                        <p>Năng lực làm việc nhóm</p>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h4>A+</h4>
+                        <p>Mục tiêu khóa học</p>
+                    </div>
+                </div>
             </div>
-            <div class="about-right">
-                <div class="stat-box">
-                    <i class="fa-solid fa-code"></i>
-                    <h4>6+</h4>
-                    <p>Dự án cá nhân hoàn thiện</p>
+
+            <!-- Deep Dive Cards (Hobbies, Goals, Future Plans) -->
+            <div class="personal-deepdive-grid">
+                <!-- Hobbies -->
+                <div class="personal-card">
+                    <div class="personal-card-header">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h4>Sở Thích Cá Nhân</h4>
+                    </div>
+                    <p>
+                        Tớ cực kỳ đam mê nghe nhạc K-pop và xem K-drama để vừa giải trí vừa rèn luyện phản xạ ngôn ngữ một cách tự nhiên nhất. Ngoài ra, tớ rất thích lưu giữ vẻ đẹp cuộc sống thông qua những bức ảnh chụp ngẫu hứng, trang trí bàn học thật xinh xắn bằng sticker dễ thương, và dạo gần đây tớ còn mê mẩn việc thử thách "vẽ tranh" bằng các công cụ AI tạo ảnh nghệ thuật.
+                    </p>
                 </div>
-                <div class="stat-box">
-                    <i class="fa-solid fa-bolt"></i>
-                    <h4>3+</h4>
-                    <p>Công cụ AI thành thạo</p>
+
+                <!-- Goals -->
+                <div class="personal-card">
+                    <div class="personal-card-header">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h4>Mục Tiêu Học Tập</h4>
+                    </div>
+                    <p>
+                        Trong ngắn hạn, tớ quyết tâm đạt điểm tối đa trong học phần Công nghệ số này và vận dụng nhuần nhuyễn các kỹ thuật Prompt Engineering để tối ưu hóa quá trình dịch thuật, soạn thảo văn bản tiếng Hàn. Tớ muốn xóa nhòa khoảng cách giữa tư duy ngôn ngữ truyền thống và công nghệ hiện đại để đạt hiệu suất học tập xuất sắc.
+                    </p>
                 </div>
-                <div class="stat-box">
-                    <i class="fa-solid fa-users"></i>
-                    <h4>100%</h4>
-                    <p>Năng lực làm việc nhóm</p>
-                </div>
-                <div class="stat-box">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h4>A+</h4>
-                    <p>Mục tiêu khóa học</p>
+
+                <!-- Future Plans -->
+                <div class="personal-card">
+                    <div class="personal-card-header">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h4>Kế Hoạch Tương Lai</h4>
+                    </div>
+                    <p>
+                        Về lâu dài, tớ định hướng bản thân phát triển thành một Chuyên viên Truyền thông số hoặc Quản trị tài nguyên số tại các doanh nghiệp liên kết đa quốc gia Việt - Hàn. Việc trang bị nền tảng ngoại ngữ vững vàng đi đôi với kỹ năng làm chủ trí tuệ nhân tạo sẽ là bước đệm đắc lực giúp tớ tự tin đón đầu làn sóng tuyển dụng toàn cầu.
+                    </p>
                 </div>
             </div>
         </div>
